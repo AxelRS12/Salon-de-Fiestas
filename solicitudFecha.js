@@ -1,26 +1,19 @@
 //Definicion de usuarios
-let usuarioAdmin = function(nombre, password) {
-    this.nombre = nombre;
-    this.password = password;
-}
+//Json salones
+const salonesExistenes = [
+    {id: 1, nombre : "Salon A", precio: 1800},
+    {id: 2, nombre : "Salon B", precio: 1500},
+    {id: 3, nombre : "Salon C", precio: 1200}
+ ];
+salonesExistenes.forEach(item => {
+    let div = document.createElement("div");
+    div.innerHTML = `    
+    <p>Nombre: ${item.nombre}</p>
+    <b>Precio: $${item.precio}</b>
+    `
+    document.body.append(div);
+});
 
-let adminUno = new usuarioAdmin('Axel', 1234);
-let adminDos = new usuarioAdmin('Pepe', 1234);
-
-const Usuarios = [adminUno.nombre, adminDos.nombre];
-//LOG IN
-let usuario = prompt('Ingrese Usuario/ usuario: Pepe');
-// let pass = prompt('Ingrese contraseña/ contraseña: 1234');
-
-let validar = Usuarios.includes( usuario );
-console.log('usuario', validar);
-
-while(!validar) {
-    alert("Las credenciales no son correctas, por favor intente de nuevo");
-    usuario = prompt('Ingrese Usuario ');
-    validar = Usuarios.includes(usuario);
-    console.log('usuario', validar);
-}
 //RESERVACION
 let dia = prompt("Ingrese el dia fecha de reserva", 1);
 let mes = prompt("Ingrese el mes fecha de reserva", 1);
@@ -46,6 +39,10 @@ while ( isNaN(dia) || isNaN(mes) || isNaN(anio)) {
     
 }
 
+
+
+
+
 //Valor de cada salon por defecto 
 let salonA = 0;
 let salonB = 0;
@@ -65,7 +62,7 @@ if (salon == "a" || salon == "A") {
     salonC = 1200;
 }
 console.log(salonA, salonB, salonC);
-
+localStorage.setItem(salon)
 let fechaReserva = document.getElementById("fechaReserva");
 fechaReserva.innerHTML = (`Fecha reservada ${dia}/${mes}/${anio}, salon reservado: Salon ${ salon.toUpperCase()}`);
 
@@ -125,6 +122,8 @@ if (!salonA == 0) {
 } else if (!salonC == 0) {
     salonElegido = salonC
 } 
+
+
 //log chequeo
 console.log("Salon elegido vale " , salonElegido);
 //funcion sumatoria de ticket
