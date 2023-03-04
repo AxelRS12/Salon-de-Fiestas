@@ -1,11 +1,18 @@
+//Definicion de usuarios
+let usuarioAdmin = function(nombre, password) {
+    this.nombre = nombre;
+    this.password = password;
+}
 
+let adminUno = new usuarioAdmin('Axel', 1234);
+let adminDos = new usuarioAdmin('Pepe', 1234);
 
-
-const Usuarios = [ "Axel", "Mario", "Pepe"];
-
+const Usuarios = [adminUno.nombre, adminDos.nombre];
+//LOG IN
 let usuario = prompt('Ingrese Usuario/ usuario: Pepe');
+// let pass = prompt('Ingrese contraseña/ contraseña: 1234');
 
-let validar = Usuarios.includes(usuario);
+let validar = Usuarios.includes( usuario );
 console.log('usuario', validar);
 
 while(!validar) {
@@ -14,11 +21,7 @@ while(!validar) {
     validar = Usuarios.includes(usuario);
     console.log('usuario', validar);
 }
-
-
-
-
-
+//RESERVACION
 let dia = prompt("Ingrese el dia fecha de reserva", 1);
 let mes = prompt("Ingrese el mes fecha de reserva", 1);
 let anio = prompt("Ingrese el año fecha de reserva (yyyy)", 1900);
