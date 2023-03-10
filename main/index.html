@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon de Fiestas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleSolicitud.css">   
+</head>
+<body>
+    
+    <nav></nav>
+       
+        <div class="container">
+            <h3>
+                Selecciona Fecha
+            </h3>
+
+            <div class="row">
+                <form>
+                    <div class="input-group">
+                        <input id="fecha" type="date" name="date" class="flatpickr" placeholder="selecciona fecha">
+                        <div class="input-group append"></div>
+                        
+                        <div class="col-auto my-3">
+                            <button type="button" class="btn btn-primary" onclick="seleccionarFecha()">Aceptar</button>
+                        </div>            
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        
+            <div class="container">
+                <h3>Elija salón:</h3>  
+            <div class="choose">                      
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">            
+                    <option selected>Elija...</option>
+                    <option value="A">Salón A</option>
+                    <option value="B">Salón B</option>
+                    <option value="C">Salón C</option>          
+                </select>            
+            </div>
+            
+            <div class="col-auto my-1">
+                <button type="button" class="btn btn-primary" onclick="elegirSalon()">Aceptar</button>
+            </div>
+            </div>
+        
+
+
+    <div class="containerPrincipal">
+        <h3>Seleccion</h3>
+            <form id="formulario" class="p-3 mt-5 shadow border">
+                <h2>Día seleccionado</h2>
+                <h3 id="datofecha" class="text-center fw-light">
+
+                </h3>
+                <br>
+                 <h2>Salón</h2>
+                 <h3 id="datosalon" class="text-center fw-light" aria-placeholder="">
+
+                </h3>
+            <br>
+            </form>               
+    </div>
+
+    <button class="button" id="botonSalones" onclick="irSalones()">Ver Salones</button>
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./solicitudFecha.js"> 
+    config = {
+        inline: true,     
+        altFormat: 'd m Y'        
+    }
+    flatpickr("input[type = date]", config);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
