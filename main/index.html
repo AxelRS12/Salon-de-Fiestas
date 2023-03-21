@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="styleSolicitud.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  
+  <title>Formulario Registro</title>
+</head>
+<body>
+  <section class="form-register">
+    <h4>Formulario de Reservas</h4>
+    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese Nombre/s Cliente">
+    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese Apellido/s Cliente">
+    <input class="controls" type="email" name="correo" id="email" placeholder="Ingrese Email">
+    <select class="custom-select mr-sm-2" id="salonSeleccionado">            
+      <option selected>Elija Salón</option>
+      <option value="Grande">Salón Grande</option>
+      <option value="Mediano">Salón Mediano</option>
+      <option value="Pequenio">Salón Pequeño</option>          
+   </select>
+   <select class="custom-select mr-sm-2" id="comidaSeleccionada">            
+    <option selected>Elija Menú</option>
+    <option value="Parrillada">Parrillada</option>
+    <option value="Pizza Party">Pizza Party</option>
+    <option value="Sushi Fest">Sushi Fest</option>          
+ </select>
+    <input id="fecha" type="date" name="date" class="flatpickr" placeholder="Selecciona Fecha">
+    <button type="button" class="btn btn-primary" onclick="verificarFecha()">Verificar Disponibilidad</button>    
+    <input class="botons" type="submit" onclick="reservar()" value="Reservar" >
+    <button class="btn btn-primary" onclick="document.location.reload()">Realizar otra reserva</button>
+    <button class="btn btn-primary" onclick="volver()">Ver última reserva</button>
+  </section>
+  <div class="contenedor" id="contenedor">     
+    <h3 type="text" name="nombres" id="clima" placeholder=""></h3>
+  </div>
+  
+  <script src="./solicitudFecha.js"> 
+    config = {
+        inline: true,     
+        altFormat: 'd m Y'        
+    }
+    flatpickr("input[type = date]", config);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
